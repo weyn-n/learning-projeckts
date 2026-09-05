@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taskly</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Relief:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <header>
+        <h1>TASKLY</h1>
+        <input type="text" placeholder="Search">
+        <span>Kyrylo</span>
+    </header>
+
+    <aside>
+        <p>Dashboard</p>
+        <p>📋 Tasks</p>
+        <p>✓ Completed</p>
+        <p>⚙ Settings</p>
+        <p>🚪 Logout</p>
+    </aside>
+
+    <main>
+
+        <section class="statistics">
+            <div>12<br>All</div>
+            <div>7<br>Active</div>
+            <div>5<br>Done</div>
+        </section>
+
+        <h2>My Tasks</h2>
+
+        <div class="add-task">
+            <input type="text" placeholder="Add a new task...">
+            <button>Add</button>
+        </div>
+
+        <div class="task">
+            <input type="checkbox">
+            <span>Learn Python</span>
+            <button>🗑</button>
+        </div>
+
+    </main>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+
+</html>
