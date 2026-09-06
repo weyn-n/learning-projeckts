@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Comic+Relief:wght@400;700&family=Manrope:wght@200..800&display=swap');
 
+* {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
     font-family: "Manrope", sans-serif; 
@@ -31,6 +35,41 @@ aside {
     width: 220px;
     height: calc(100vh - 70px);
     background-color: white;
+    padding: 25px 15px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.sidebar-item {
+    text-decoration: none;
+    color: #555;
+    padding: 12px 15px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 500;
+    transition: 0.2s;
+}
+
+.sidebar-item:hover {
+    background-color: #f2f2f2;
+    color: #111;
+}
+
+.sidebar-item.active {
+    background-color: #f0f0f0;
+    color: #111;
+    font-weight: 600;
+}
+
+.logout {
+    margin-top: auto;
 }
 
 main {
@@ -43,11 +82,24 @@ main {
     gap: 20px;
 }
 
-.statistics div {
-    width: 150px;
-    padding: 25px;
-    border-radius: 10px;
-    background: white;
+.stat-card {
+    width: 180px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.stat-number {
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.stat-label {
+    font-size: 14px;
+    color: #777;
 }
 
 .task {

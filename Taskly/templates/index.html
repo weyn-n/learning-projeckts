@@ -23,21 +23,38 @@
     </header>
 
     <aside>
-        <p>Dashboard</p>
-        <p>📋 Tasks</p>
-        <p>✓ Completed</p>
-        <p>⚙ Settings</p>
-        <p>🚪 Logout</p>
+        <nav class="sidebar">
+            <a href="#" class="sidebar-item active">Dashboard</a>
+            <a href="#" class="sidebar-item">📋 Tasks</a>
+            <a href="#" class="sidebar-item">✓ Completed</a>
+            <a href="#" class="sidebar-item">⚙ Settings</a>
+        </nav>
+
+        <a href="#" class="sidebar-item logout">🚪 Logout</a>
     </aside>
 
     <main>
 
         <section class="statistics">
-            <div>12<br>All</div>
-            <div>7<br>Active</div>
-            <div>5<br>Done</div>
+
+            <div class="stat-card">
+                <span class="stat-number">12</span>
+                <span class="stat-label">All</span>
+            </div>
+        
+            <div class="stat-card">
+                <span class="stat-number">7</span>
+                <span class="stat-label">Active</span>
+            </div>
+        
+            <div class="stat-card">
+                <span class="stat-number">5</span>
+                <span class="stat-label">Done</span>
+            </div>
+
         </section>
 
+        
         <h2>My Tasks</h2>
 
         <div class="add-task">
