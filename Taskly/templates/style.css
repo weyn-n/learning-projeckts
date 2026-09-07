@@ -102,12 +102,84 @@ main {
     color: #777;
 }
 
+.add-task {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.add-task input {
+    flex: 1;
+    height: 44px;
+    padding: 0 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: white;
+    font-family: inherit;
+    font-size: 14px;
+    outline: none;
+}
+
+.add-task input:focus {
+    border-color: #aaa;
+}
+
+.add-task input::placeholder {
+    color: #999;
+}
+
+.add-task button {
+    height: 44px;
+    padding: 0 22px;
+    border: none;
+    border-radius: 8px;
+    background-color: #111;
+    color: white;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.add-task button:hover {
+    background-color: #333;
+}
+
 .task {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
     padding: 15px;
     background-color: white;
     margin-top: 10px;
     border-radius: 10px;
+}
+
+.task span {
+    flex: 1;
+    font-size: 14px;
+}
+
+.task.completed span {
+    text-decoration: line-through;
+    color: #999;
+}
+
+.task button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 16px;
+    opacity: 0.5;
+}
+
+.task button:hover {
+    opacity: 1;
+}
+
+.task input {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
 }
