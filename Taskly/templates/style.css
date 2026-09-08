@@ -28,6 +28,31 @@ header {
     background-color: white;
 }
 
+header input {
+    width: 280px;
+    height: 40px;
+    padding: 0 15px;
+
+    border: 1px solid #ddd;
+    border-radius: 8px;
+
+    background-color: #f8f8f8;
+
+    font-family: inherit;
+    font-size: 14px;
+
+    outline: none;
+}
+
+header input:focus {
+    background-color: white;
+    border-color: #aaa;
+}
+
+header input::placeholder {
+    color: #999;
+}
+
 aside {
     position: fixed;
     left: 0;
