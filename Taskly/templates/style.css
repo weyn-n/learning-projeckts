@@ -28,29 +28,51 @@ header {
     background-color: white;
 }
 
-header input {
-    width: 280px;
+.search-box {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.search-box input {
+    width: 240px;
     height: 40px;
     padding: 0 15px;
-
     border: 1px solid #ddd;
     border-radius: 8px;
-
     background-color: #f8f8f8;
-
     font-family: inherit;
     font-size: 14px;
-
     outline: none;
 }
 
-header input:focus {
+.search-box input:focus {
     background-color: white;
     border-color: #aaa;
 }
 
-header input::placeholder {
+.search-box input::placeholder {
     color: #999;
+}
+
+.search-box button {
+    width: 40px;
+    height: 40px;
+
+    border: none;
+    border-radius: 8px;
+
+    background-color: #111;
+    color: white;
+
+    cursor: pointer;
+    font-size: 16px;
+
+    transition: 0.2s;
+}
+
+.search-box button:hover {
+    background-color: #333;
 }
 
 aside {
