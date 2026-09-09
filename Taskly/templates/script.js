@@ -1,15 +1,6 @@
-const checkboxes = document.querySelectorAll(".task input[type='checkbox']");
 const input = document.getElementById("taskInput");
 const button = document.getElementById("addButton");
 const taskList = document.getElementById("taskList")
-
-checkboxes.forEach(function(checkbox) {
-    checkbox.addEventListener("change", function() {
-        const task = checkbox.parentElement;
-
-        task.classList.toggle("completed");
-    });
-});
 
 button.addEventListener("click",
     function () {
@@ -35,6 +26,17 @@ button.addEventListener("click",
         // create delete button
         const deleteButton = document.createElement("button");
         deleteButton.textContent = "🗑";
+
+        // checkbox
+        checkbox.addEventListener("change", function () {
+
+            if (checkbox.checked) {
+                text.style.textDecoration = "line-through";
+            } else {
+                text.style.textDecoration = "none";
+            }
+
+        });
 
         task.appendChild(checkbox);
         task.appendChild(text);
