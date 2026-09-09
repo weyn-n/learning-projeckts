@@ -38,6 +38,10 @@ button.addEventListener("click",
 
         });
 
+        deleteButton.addEventListener("click", function () {
+            task.remove();
+        });
+
         task.appendChild(checkbox);
         task.appendChild(text);
         task.appendChild(deleteButton);
