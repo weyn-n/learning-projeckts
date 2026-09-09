@@ -16,9 +16,20 @@
 
 <body>
 
-    <header>
-
+    <aside>
         <h1>TASKLY</h1>
+
+        <nav class="sidebar">
+            <a href="#" class="sidebar-item active">Dashboard</a>
+            <a href="#" class="sidebar-item">📋 Tasks</a>
+            <a href="#" class="sidebar-item">✓ Completed</a>
+            <a href="#" class="sidebar-item">⚙ Settings</a>
+        </nav>
+    
+        <a href="#" class="sidebar-item logout">🚪 Logout</a>
+    </aside>
+
+    <header>    
 
         <div class="search-box"> 
             <input type="text" placeholder="Search"> 
@@ -28,17 +39,6 @@
         <span>Kyrylo</span>
         
     </header>
-
-    <aside>
-        <nav class="sidebar">
-            <a href="#" class="sidebar-item active">Dashboard</a>
-            <a href="#" class="sidebar-item">📋 Tasks</a>
-            <a href="#" class="sidebar-item">✓ Completed</a>
-            <a href="#" class="sidebar-item">⚙ Settings</a>
-        </nav>
-
-        <a href="#" class="sidebar-item logout">🚪 Logout</a>
-    </aside>
 
     <main>
 
@@ -71,23 +71,11 @@
 
         <div id="taskList" class="task-list">
         
-            <div class="task">
+            <!-- <div class="task">
                 <input type="checkbox">
                 <span>Learn Python</span>
                 <button>🗑</button>
-            </div>
-        
-            <div class="task">
-                <input type="checkbox">
-                <span>Practice JavaScript</span>
-                <button>🗑</button>
-            </div>
-        
-            <div class="task">
-                <input type="checkbox">
-                <span>Finish Taskly design</span>
-                <button>🗑</button>
-            </div>
+            </div> -->
         
         </div>
 
