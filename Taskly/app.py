@@ -1,11 +1,15 @@
 from flask import Flask, render_template, request, jsonify
 import sqlite3
+import os
 
 app = Flask(__name__)
 
 
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+DATABASE = os.path.join(BASE_DIR, "database.db")
+
 def init_db():
-    connection = sqlite3.connect("database.db")
+    connection = sqlite3.connect(DATABASE)
 
     connection.execute("""
         CREATE TABLE IF NOT EXISTS tasks (
@@ -25,7 +29,7 @@ def add_task():
 
     title = data["title"]
 
-    connection = sqlite3.connect("database.db")
+    connection = sqlite3.connect(DATABASE)
 
     cursor = connection.cursor()
 
