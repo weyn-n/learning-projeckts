@@ -1,88 +1,46 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
 
-<head>
+{% block content %}
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Taskly</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Comic+Relief:wght@400;700&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<h2>Dashboard</h2>
 
-</head>
+<section class="statistics">
 
-<body>
+    <div class="stat-card">
+        <span class="stat-number">12</span>
+        <span class="stat-label">All</span>
+    </div>
 
-    <aside>
-        <h1>TASKLY</h1>
+    <div class="stat-card">
+        <span class="stat-number">7</span>
+        <span class="stat-label">Active</span>
+    </div>
 
-        <nav class="sidebar">
-            <a href="/" class="sidebar-item active">Dashboard</a>
-            <a href="/tasks" class="sidebar-item">📋 Tasks</a>
-            <a href="#" class="sidebar-item">✓ Completed</a>
-            <a href="#" class="sidebar-item">⚙ Settings</a>
-        </nav>
-    
-        <a href="#" class="sidebar-item logout">🚪 Logout</a>
-    </aside>
+    <div class="stat-card">
+        <span class="stat-number">5</span>
+        <span class="stat-label">Done</span>
+    </div>
 
-    <header>    
+</section>
 
-        <div class="search-box"> 
-            <input type="text" placeholder="Search"> 
-            <button>🔍</button> 
-        </div>
+<h2>Recent Tasks</h2>
 
-        <span>Kyrylo</span>
-        
-    </header>
+<div class="task-list">
 
-    <main>
+    <div class="task">
 
-        <section class="statistics">
+        <input type="checkbox">
+        <span>Learn Python</span>
 
-            <div class="stat-card">
-                <span class="stat-number">12</span>
-                <span class="stat-label">All</span>
-            </div>
-        
-            <div class="stat-card">
-                <span class="stat-number">7</span>
-                <span class="stat-label">Active</span>
-            </div>
-        
-            <div class="stat-card">
-                <span class="stat-number">5</span>
-                <span class="stat-label">Done</span>
-            </div>
+    </div>
 
-        </section>
+    <div class="task">
 
-        
-        <h2>My Tasks</h2>
+        <input type="checkbox">
+        <span>Practice JavaScript</span>
 
-        <div class="add-task">
-            <input id="taskInput" type="text" placeholder="Add a new task...">
-            <button id="addButton">Add</button>
-        </div>
+    </div>
 
-        <div id="taskList" class="task-list">
-        
-            <!-- <div class="task">
-                <input type="checkbox">
-                <span>Learn Python</span>
-                <button>🗑</button>
-            </div> -->
-        
-        </div>
+</div>
 
-    </main>
-
-    <script src="{{ url_for('static', filename='script.js') }}"></script>
-
-</body>
-
-</html>
+{% endblock %}
