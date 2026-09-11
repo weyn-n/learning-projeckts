@@ -6,7 +6,10 @@ app = Flask(__name__)
 
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-DATABASE = os.path.join(BASE_DIR, "database.db")
+DATABASE = os.path.join(BASE_DIR, "task.db")
+
+print("DATABASE:", DATABASE)
+print("EXISTS:", os.path.exists(DATABASE))
 
 def init_db():
     connection = sqlite3.connect(DATABASE)
@@ -49,6 +52,21 @@ def add_task():
         "title": title,
         "completed": 0
     })
+
+@app.route("/api/tasks", methods=["GET"])
+def get_tasks():
+    connection = sqlite3.connect(DATABASE)
+    cursor = connection.cursor()
+
+    print("DATABASE:", DATABASE)
+
+    cursor.execute("SELECT * FROM tasks")
+
+    tasks = cursor.fetchall()
+
+    connection.close()
+
+    return jsonify(tasks)
 
 @app.route("/")
 def dashboard():
