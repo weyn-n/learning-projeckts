@@ -25,14 +25,22 @@ if (input && button && taskList) {
         }       
 
         checkbox.addEventListener("change", function () {
-            if (checkbox.checked) { 
 
+            if (checkbox.checked) {
                 text.style.textDecoration = "line-through";
-            
-                fetch(`/api/tasks/${id}`, {
-                    method: "PUT"
-                });   
-            }  
+            } else {
+                text.style.textDecoration = "none";
+            }
+        
+            fetch(`/api/tasks/${id}`, {
+                method: "PUT",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    completed: checkbox.checked ? 1 : 0
+                })
+            });
         });
 
         deleteButton.addEventListener("click", function () {
