@@ -5,7 +5,7 @@ const taskList = document.getElementById("taskList");
 if (input && button && taskList) {
 
     // create Task
-    function createTask(title) {
+    function createTask(id, title) {
 
         const task = document.createElement("div");
         task.classList.add("task");
@@ -28,7 +28,13 @@ if (input && button && taskList) {
         });
 
         deleteButton.addEventListener("click", function () {
-            task.remove();
+            fetch(`/api/tasks/${id}`, {
+                method: "DELETE"
+            })
+            .then(response => response.json())
+            .then(data => {
+                task.remove();
+            });
         });
 
         task.appendChild(checkbox);
@@ -44,7 +50,7 @@ if (input && button && taskList) {
         .then(response => response.json())
         .then(data => {
             data.forEach(task => {
-                createTask(task[1]);
+                createTask(task[0], task[1]);
             });
         });
 
@@ -69,7 +75,7 @@ if (input && button && taskList) {
         })
         .then(response => response.json())
         .then(data => {
-            createTask(data.title);
+            createTask(data.id, data.title);
         });
 
         input.value = "";
