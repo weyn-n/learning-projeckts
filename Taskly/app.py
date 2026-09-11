@@ -53,6 +53,24 @@ def add_task():
         "completed": 0
     })
 
+@app.route("/api/tasks/<int:task_id>", methods=["PUT"])
+def complete_task(task_id):
+
+    connection = sqlite3.connect(DATABASE)
+    cursor = connection.cursor()
+
+    cursor.execute(
+        "UPDATE tasks SET completed = 1 WHERE id = ?",
+        (task_id,)
+    )
+
+    connection.commit()
+    connection.close()
+
+    return jsonify({
+        "message": "Task completed"
+    })
+
 @app.route("/api/tasks/<int:task_id>", methods=["DELETE"])
 def delete_task(task_id):
 

@@ -20,11 +20,14 @@ if (input && button && taskList) {
         deleteButton.textContent = "🗑";
 
         checkbox.addEventListener("change", function () {
-            if (checkbox.checked) {
+            if (checkbox.checked) { 
+                
                 text.style.textDecoration = "line-through";
-            } else {
-                text.style.textDecoration = "none";
-            }
+            
+                fetch(`/api/tasks/${id}`, {
+                    method: "PUT"
+                });   
+            }  
         });
 
         deleteButton.addEventListener("click", function () {
