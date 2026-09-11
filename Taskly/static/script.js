@@ -5,7 +5,7 @@ const taskList = document.getElementById("taskList");
 if (input && button && taskList) {
 
     // create Task
-    function createTask(id, title) {
+    function createTask(id, title, completed) {
 
         const task = document.createElement("div");
         task.classList.add("task");
@@ -19,9 +19,14 @@ if (input && button && taskList) {
         const deleteButton = document.createElement("button");
         deleteButton.textContent = "🗑";
 
+        if (completed === 1) {
+            checkbox.checked = true;
+            text.style.textDecoration = "line-through";
+        }       
+
         checkbox.addEventListener("change", function () {
             if (checkbox.checked) { 
-                
+
                 text.style.textDecoration = "line-through";
             
                 fetch(`/api/tasks/${id}`, {
@@ -53,7 +58,7 @@ if (input && button && taskList) {
         .then(response => response.json())
         .then(data => {
             data.forEach(task => {
-                createTask(task[0], task[1]);
+                createTask(task[0], task[1], task[2]);
             });
         });
 
@@ -78,7 +83,7 @@ if (input && button && taskList) {
         })
         .then(response => response.json())
         .then(data => {
-            createTask(data.id, data.title);
+            createTask(data.id, data.title, data.completed);
         });
 
         input.value = "";
