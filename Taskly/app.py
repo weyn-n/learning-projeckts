@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify, redirect
 from werkzeug.security import generate_password_hash
 import sqlite3
 import os
@@ -139,6 +139,15 @@ def register():
 
         conn = sqlite3.connect(DATABASE)
 
+        user = conn.execute(
+            "SELECT id FROM users WHERE username = ?",
+            (username,)
+        ).fetchone()
+
+        if user:
+            conn.close()
+            return "Username already exists"
+
         conn.execute(
             "INSERT INTO users (username, password) VALUES (?, ?)",
             (username, password_hash)
@@ -149,7 +158,7 @@ def register():
 
         return "Registration successful"
 
-    return render_template("register.html")
+    return redirect("/login")
 
 
 @app.route("/login", methods=["GET", "POST"])
