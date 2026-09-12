@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, jsonify
+from werkzeug.security import generate_password_hash
 import sqlite3
 import os
 
@@ -19,6 +20,14 @@ def init_db():
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             title TEXT NOT NULL,
             completed INTEGER DEFAULT 0
+        )
+    """)
+
+    connection.execute("""
+        CREATE TABLE IF NOT EXISTS users (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            username TEXT NOT NULL UNIQUE,
+            password TEXT NOT NULL
         )
     """)
 
@@ -117,6 +126,7 @@ def dashboard():
 def tasks():
     return render_template("tasks.html")
 
+
 @app.route("/register", methods=["GET", "POST"])
 def register():
 
@@ -125,10 +135,22 @@ def register():
         username = request.form["username"]
         password = request.form["password"]
 
-        print(username)
-        print(password)
+        password_hash = generate_password_hash(password)
+
+        conn = sqlite3.connect(DATABASE)
+
+        conn.execute(
+            "INSERT INTO users (username, password) VALUES (?, ?)",
+            (username, password_hash)
+        )
+
+        conn.commit()
+        conn.close()
+
+        return "Registration successful"
 
     return render_template("register.html")
+
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
