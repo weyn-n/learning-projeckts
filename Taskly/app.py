@@ -130,6 +130,19 @@ def register():
 
     return render_template("register.html")
 
+@app.route("/login", methods=["GET", "POST"])
+def login():
+
+    if request.method == "POST":
+
+        username = request.form["username"]
+        password = request.form["password"]
+
+        print(username)
+        print(password)
+
+    return render_template("login.html")
+
 
 if __name__ == "__main__":
     init_db()
